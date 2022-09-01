@@ -5,7 +5,6 @@
 //  Created by Adeel kiani on 31/08/2022.
 //
 
-
 import UIKit
 
 class BaseXibLoader: UIView {

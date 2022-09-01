@@ -1,0 +1,12 @@
+{
+  "mediaTypes": [
+    "Album",
+    "Artist",
+    "Book",
+    "Movie",
+    "Music Video",
+    "Podcast",
+    "Song"
+  ]
+}
+

@@ -5,13 +5,12 @@
 //  Created by Adeel kiani on 31/08/2022.
 //
 
-
 import Foundation
 import UIKit
 
 protocol Coordinator: AnyObject {
   var navigationController: UINavigationController { get set }
-  func openViewController(data:Any?)
+  func openViewController(data: Any?)
   func popViewController()
 }
 final class AppCoordinator: Coordinator {
@@ -28,10 +27,10 @@ final class AppCoordinator: Coordinator {
       self.navigationController.configure()
    }
   
-  func openViewController(data:Any?) {
+  func openViewController(data: Any?) {
       window.rootViewController = navigationController
       window.makeKeyAndVisible()
-      NavigateToHome()
+      navigateToHome()
   }
   
   func popViewController() {
@@ -39,7 +38,7 @@ final class AppCoordinator: Coordinator {
   }
 
   // MARK: - Navigation
-  private func NavigateToHome() {
+  private func navigateToHome() {
 
       let coordinator = HomeCoordinator(navigationController: navigationController)
       coordinator.appCoordinator = self

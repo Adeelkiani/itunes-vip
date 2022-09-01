@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import itunes_vip
+@testable import Itunesvip
 
-class itunes_vipTests: XCTestCase {
+class ItunesvipTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

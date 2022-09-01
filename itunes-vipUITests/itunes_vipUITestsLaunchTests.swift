@@ -7,7 +7,7 @@
 
 import XCTest
 
-class itunes_vipUITestsLaunchTests: XCTestCase {
+class ItunesvipUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

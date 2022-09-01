@@ -7,23 +7,67 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+protocol HomeViewDelegate {
+    func setMediaTypes(mediaTypes: [String])
+}
 
+class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchField: UITextField!
+    
+    var coordinator: HomeCoordinatorDelegate!
+    var interactor: HomeInteractorDelegate?
+    
+    var mediaTypes: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        interactor?.loadMediaTypes()
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "SlidingContentViewCell", bundle: nil), forCellWithReuseIdentifier: "SlidingContentViewCell")
+        collectionView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellWithReuseIdentifier: "LoadingCell")
     }
-    */
-
+    
+    @IBAction func onSubmitTapped(_ sender: Any) {
+    }
+}
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: self.view.frame.width - 5, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return mediaTypes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        //        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SlidingContentViewCell", for: indexPath) as? SlidingContentViewCell {
+        //
+        //            cell.data = devicesList[indexPath.row]
+        //
+        //
+        //            return cell
+        //
+        //        }
+        return UICollectionViewCell()
+        
+    }
+}
+extension HomeViewController: HomeViewDelegate {
+    func setMediaTypes(mediaTypes: [String]) {
+        print("MEDIA TYPES: \(mediaTypes)")
+    }
 }
