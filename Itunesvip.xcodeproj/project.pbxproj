@@ -31,6 +31,13 @@
 		D8B9848628C0BB4900987E37 /* mediaTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = D8B9848528C0BB4900987E37 /* mediaTypes.json */; };
 		D8B9848928C0BCE100987E37 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9848828C0BCE100987E37 /* MediaType.swift */; };
 		D8B9848B28C0BD9E00987E37 /* Codeable+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9848A28C0BD9E00987E37 /* Codeable+Helper.swift */; };
+		D8BEDBB728C0CEA8004FDB71 /* SelectedMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BEDBB528C0CEA8004FDB71 /* SelectedMedia.swift */; };
+		D8BEDBB828C0CEA8004FDB71 /* SelectedMedia.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BEDBB628C0CEA8004FDB71 /* SelectedMedia.xib */; };
+		D8BEDBBA28C1305C004FDB71 /* UIViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BEDBB928C1305C004FDB71 /* UIViewController+Helper.swift */; };
+		D8BEDBBE28C13131004FDB71 /* SelectMediaTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BEDBBC28C13131004FDB71 /* SelectMediaTypeViewController.swift */; };
+		D8BEDBBF28C13131004FDB71 /* SelectMediaTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BEDBBD28C13131004FDB71 /* SelectMediaTypeViewController.xib */; };
+		D8BEDBC328C13BB2004FDB71 /* MediaTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BEDBC128C13BB2004FDB71 /* MediaTypeCell.swift */; };
+		D8BEDBC428C13BB2004FDB71 /* MediaTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BEDBC228C13BB2004FDB71 /* MediaTypeCell.xib */; };
 		F9986668BE5D58A13F46EF69 /* Pods_itunes_vipTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2595D76BE653CA926D63FB5 /* Pods_itunes_vipTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +91,13 @@
 		D8B9848528C0BB4900987E37 /* mediaTypes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mediaTypes.json; sourceTree = "<group>"; };
 		D8B9848828C0BCE100987E37 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
 		D8B9848A28C0BD9E00987E37 /* Codeable+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codeable+Helper.swift"; sourceTree = "<group>"; };
+		D8BEDBB528C0CEA8004FDB71 /* SelectedMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMedia.swift; sourceTree = "<group>"; };
+		D8BEDBB628C0CEA8004FDB71 /* SelectedMedia.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedMedia.xib; sourceTree = "<group>"; };
+		D8BEDBB928C1305C004FDB71 /* UIViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helper.swift"; sourceTree = "<group>"; };
+		D8BEDBBC28C13131004FDB71 /* SelectMediaTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMediaTypeViewController.swift; sourceTree = "<group>"; };
+		D8BEDBBD28C13131004FDB71 /* SelectMediaTypeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectMediaTypeViewController.xib; sourceTree = "<group>"; };
+		D8BEDBC128C13BB2004FDB71 /* MediaTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypeCell.swift; sourceTree = "<group>"; };
+		D8BEDBC228C13BB2004FDB71 /* MediaTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaTypeCell.xib; sourceTree = "<group>"; };
 		D8DC05C95C7DB366345B6014 /* Pods_itunes_vip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunes_vip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2825FED576F233526A9446 /* Pods-itunes-vip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes-vip.debug.xcconfig"; path = "Target Support Files/Pods-itunes-vip/Pods-itunes-vip.debug.xcconfig"; sourceTree = "<group>"; };
 		F817CDBC65C156819255A561 /* Pods-itunes-vip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes-vip.release.xcconfig"; path = "Target Support Files/Pods-itunes-vip/Pods-itunes-vip.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +215,7 @@
 		D8174D3228BFC886009EF4D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D8BEDBB328C0CE5E004FDB71 /* Cells */,
 				D8174D3728BFC96C009EF4D0 /* BaseXibLoader.swift */,
 			);
 			path = View;
@@ -228,6 +243,7 @@
 			children = (
 				D8174D3A28BFC9B5009EF4D0 /* UIView+Helper.swift */,
 				D8B9848A28C0BD9E00987E37 /* Codeable+Helper.swift */,
+				D8BEDBB928C1305C004FDB71 /* UIViewController+Helper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,6 +251,7 @@
 		D8174D3C28BFC9F6009EF4D0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D8BEDBBB28C1310A004FDB71 /* SelectMediaType */,
 				D8174D3D28BFCA54009EF4D0 /* Home */,
 			);
 			path = ViewController;
@@ -316,6 +333,42 @@
 				D8B9848828C0BCE100987E37 /* MediaType.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D8BEDBB328C0CE5E004FDB71 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D8BEDBC028C13B8C004FDB71 /* MediaType */,
+				D8BEDBB428C0CE6D004FDB71 /* SelectedMedia */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D8BEDBB428C0CE6D004FDB71 /* SelectedMedia */ = {
+			isa = PBXGroup;
+			children = (
+				D8BEDBB528C0CEA8004FDB71 /* SelectedMedia.swift */,
+				D8BEDBB628C0CEA8004FDB71 /* SelectedMedia.xib */,
+			);
+			path = SelectedMedia;
+			sourceTree = "<group>";
+		};
+		D8BEDBBB28C1310A004FDB71 /* SelectMediaType */ = {
+			isa = PBXGroup;
+			children = (
+				D8BEDBBC28C13131004FDB71 /* SelectMediaTypeViewController.swift */,
+				D8BEDBBD28C13131004FDB71 /* SelectMediaTypeViewController.xib */,
+			);
+			path = SelectMediaType;
+			sourceTree = "<group>";
+		};
+		D8BEDBC028C13B8C004FDB71 /* MediaType */ = {
+			isa = PBXGroup;
+			children = (
+				D8BEDBC128C13BB2004FDB71 /* MediaTypeCell.swift */,
+				D8BEDBC228C13BB2004FDB71 /* MediaTypeCell.xib */,
+			);
+			path = MediaType;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,7 +482,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8174D4A28BFDB7D009EF4D0 /* .swiftlint.yml in Resources */,
+				D8BEDBB828C0CEA8004FDB71 /* SelectedMedia.xib in Resources */,
 				D8B9848628C0BB4900987E37 /* mediaTypes.json in Resources */,
+				D8BEDBBF28C13131004FDB71 /* SelectMediaTypeViewController.xib in Resources */,
+				D8BEDBC428C13BB2004FDB71 /* MediaTypeCell.xib in Resources */,
 				D8174D0F28BFC874009EF4D0 /* LaunchScreen.storyboard in Resources */,
 				D8174D0C28BFC874009EF4D0 /* Assets.xcassets in Resources */,
 				D8174D4128BFCBF1009EF4D0 /* HomeViewController.xib in Resources */,
@@ -577,11 +633,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8BEDBBA28C1305C004FDB71 /* UIViewController+Helper.swift in Sources */,
 				D8B9847D28C0947100987E37 /* NetworkService.swift in Sources */,
 				D8174D0328BFC873009EF4D0 /* AppDelegate.swift in Sources */,
 				D8174D0528BFC873009EF4D0 /* SceneDelegate.swift in Sources */,
 				D8174D3828BFC96C009EF4D0 /* BaseXibLoader.swift in Sources */,
+				D8BEDBBE28C13131004FDB71 /* SelectMediaTypeViewController.swift in Sources */,
+				D8BEDBB728C0CEA8004FDB71 /* SelectedMedia.swift in Sources */,
 				D8B9847828C087E500987E37 /* HomeInteractor.swift in Sources */,
+				D8BEDBC328C13BB2004FDB71 /* MediaTypeCell.swift in Sources */,
 				D8B9848028C09CA000987E37 /* APIData.swift in Sources */,
 				D8174D3B28BFC9B5009EF4D0 /* UIView+Helper.swift in Sources */,
 				D8174D4628BFD13A009EF4D0 /* HomeCoordinator.swift in Sources */,

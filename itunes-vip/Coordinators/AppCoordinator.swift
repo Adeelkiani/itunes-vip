@@ -13,6 +13,13 @@ protocol Coordinator: AnyObject {
   func openViewController(data: Any?)
   func popViewController()
 }
+
+extension Coordinator {
+    func popViewController() {
+        navigationController.popViewController(animated: true)
+    }
+}
+
 final class AppCoordinator: Coordinator {
   
   var navigationController: UINavigationController
@@ -24,17 +31,13 @@ final class AppCoordinator: Coordinator {
    init(navController: UINavigationController, window: UIWindow) {
      self.navigationController = navController
      self.window = window
-      self.navigationController.configure()
+      self.navigationController.hideNavigationBar()
    }
   
   func openViewController(data: Any?) {
       window.rootViewController = navigationController
       window.makeKeyAndVisible()
       navigateToHome()
-  }
-  
-  func popViewController() {
-    navigationController.popViewController(animated: true)
   }
 
   // MARK: - Navigation
@@ -48,8 +51,8 @@ final class AppCoordinator: Coordinator {
 }
 
 // MARK: - UINavigationController Extension
-private extension UINavigationController {
-    func configure() {
+ extension UINavigationController {
+    func hideNavigationBar() {
         navigationBar.isHidden = true
         interactivePopGestureRecognizer?.isEnabled = false
     }

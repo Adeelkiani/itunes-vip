@@ -19,3 +19,7 @@ let BASE_URL = API_URL
 let API_SEARCH = "\(BASE_URL)/search"
 
 let MEDIA_FILE = "mediaTypes"
+
+enum Colors: String {
+    case EmptyCollectionView = "EmptyCollectionView"
+}

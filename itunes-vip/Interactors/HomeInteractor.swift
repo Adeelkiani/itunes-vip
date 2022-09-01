@@ -9,21 +9,25 @@ import Foundation
 
 protocol HomeInteractorDelegate {
     func loadMediaTypes()
+    func setSelectedMediaTypes(mediaTypes: [String])
 }
 
-class HomeInteractor {
-  var presenter: HomePresenterDelegate?
-}
-
-extension HomeInteractor: HomeInteractorDelegate {
+class HomeInteractor: HomeInteractorDelegate {
+    var presenter: HomePresenterDelegate?
+    var selectedMediaTypes: [String] = []
+    
     func loadMediaTypes() {
-        print("LOADING DATA")
         
         guard let data = MediaType.parseJSONFile(fileName: MEDIA_FILE) else {
             print("Unable to load \(MEDIA_FILE) json file")
-         return
+            return
         }
         
-        presenter?.presentData(mediaTypes: data.mediaTypes ?? [])
+        presenter?.presentMediaTypes(mediaTypes: data.mediaTypes ?? [])
+    }
+    
+    func setSelectedMediaTypes(mediaTypes: [String]) {
+        self.selectedMediaTypes = mediaTypes
+        presenter?.presentSelectedMediaTypes(mediaTypes: mediaTypes)
     }
 }

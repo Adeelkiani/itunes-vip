@@ -8,19 +8,22 @@
 import Foundation
 
 protocol HomePresenterDelegate {
-    func presentData(mediaTypes: [String])
+    func presentMediaTypes(mediaTypes: [String])
+    func presentSelectedMediaTypes(mediaTypes: [String])
 }
 
-class HomePresenter {
-  var view: HomeViewDelegate?
-}
-
-extension HomePresenter: HomePresenterDelegate {
-    func presentData(mediaTypes: [String]) {
-        print("Presenting data")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.view?.setMediaTypes(mediaTypes: mediaTypes)
+class HomePresenter: HomePresenterDelegate {
+    var view: HomeViewDelegate?
+    
+    func presentMediaTypes(mediaTypes: [String]) {
+        self.view?.setMediaTypes(mediaTypes: mediaTypes)
+    }
+    
+    func presentSelectedMediaTypes(mediaTypes: [String]) {
+        if !mediaTypes.isEmpty {
+            self.view?.setSelectedMediaTypes(mediaTypes: mediaTypes)
+        } else {
+            self.view?.setEmptyMediaView()
         }
     }
 }

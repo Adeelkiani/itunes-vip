@@ -4,13 +4,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Itunesvip" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="M2a-2e-qgt" id="dzJ-bt-OYV"/>
+                <outlet property="messageLabel" destination="Epj-LL-HNS" id="uLv-bt-39f"/>
                 <outlet property="searchField" destination="6WC-Yn-Umt" id="G3I-Uz-glG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,7 +27,7 @@
                         <constraint firstAttribute="width" constant="80" id="j0Z-ko-Jn1"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for the variety of contents from the iTunes store ; including Movies" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjL-RM-Vwj">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for the variety of contents from the iTunes store." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjL-RM-Vwj">
                     <rect key="frame" x="25" y="199" width="364" height="49.5"/>
                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                     <nil key="textColor"/>
@@ -48,26 +48,26 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media Types" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-8s-b8u">
-                    <rect key="frame" x="25" y="420" width="364" height="25"/>
+                    <rect key="frame" x="25" y="420" width="105.5" height="25"/>
                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="M2a-2e-qgt">
-                    <rect key="frame" x="25" y="465" width="364" height="150"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <rect key="frame" x="25" y="465" width="364" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="150" id="WCp-uB-Sa9"/>
+                        <constraint firstAttribute="height" constant="200" id="WCp-uB-Sa9"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QH2-ow-NrW">
-                        <size key="itemSize" width="128" height="128"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="QH2-ow-NrW">
+                        <size key="itemSize" width="0.0" height="0.0"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUI-zD-VJn">
-                    <rect key="frame" x="25" y="665" width="364" height="40"/>
+                    <rect key="frame" x="25" y="705" width="364" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="KTa-Rw-0hn"/>
                     </constraints>
@@ -77,22 +77,44 @@
                         <action selector="onSubmitTapped:" destination="-1" eventType="touchUpInside" id="gZ0-OM-tns"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="Iqo-6N-YYf">
+                    <rect key="frame" x="140.5" y="407.5" width="25" height="50"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="BKi-Xi-CoC"/>
+                        <constraint firstAttribute="height" constant="50" id="O0I-N1-Ptg"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="5Ac-1E-OX0" appends="YES" id="xuK-Ek-XFT"/>
+                    </connections>
+                </imageView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No media type selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epj-LL-HNS">
+                    <rect key="frame" x="25" y="556" width="364" height="18"/>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XVW-8s-b8u" secondAttribute="trailing" constant="25" id="3Id-Fd-OTF"/>
+                <constraint firstItem="Iqo-6N-YYf" firstAttribute="centerY" secondItem="XVW-8s-b8u" secondAttribute="centerY" id="1a4-Xu-2IY"/>
                 <constraint firstItem="XVW-8s-b8u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="7Nu-Jw-c1O"/>
+                <constraint firstItem="Epj-LL-HNS" firstAttribute="leading" secondItem="M2a-2e-qgt" secondAttribute="leading" id="7to-4t-LoJ"/>
                 <constraint firstItem="sw5-Tz-wil" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LVm-mK-kjB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CjL-RM-Vwj" secondAttribute="trailing" constant="25" id="NTx-fl-WS5"/>
-                <constraint firstItem="PUI-zD-VJn" firstAttribute="top" secondItem="M2a-2e-qgt" secondAttribute="bottom" constant="50" id="QaK-mt-a92"/>
+                <constraint firstItem="PUI-zD-VJn" firstAttribute="top" secondItem="M2a-2e-qgt" secondAttribute="bottom" constant="40" id="QaK-mt-a92"/>
+                <constraint firstItem="Iqo-6N-YYf" firstAttribute="leading" secondItem="XVW-8s-b8u" secondAttribute="trailing" constant="10" id="TZU-pW-Zqk"/>
                 <constraint firstItem="kPd-ez-2kr" firstAttribute="leading" secondItem="6WC-Yn-Umt" secondAttribute="leading" constant="5" id="Try-UK-Atb"/>
                 <constraint firstItem="XVW-8s-b8u" firstAttribute="top" secondItem="kPd-ez-2kr" secondAttribute="bottom" constant="70" id="VIM-lU-Q4J"/>
+                <constraint firstItem="Epj-LL-HNS" firstAttribute="centerX" secondItem="M2a-2e-qgt" secondAttribute="centerX" id="WKv-0a-Tc0"/>
                 <constraint firstItem="6WC-Yn-Umt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="YrQ-fC-2gu"/>
+                <constraint firstItem="Epj-LL-HNS" firstAttribute="centerY" secondItem="M2a-2e-qgt" secondAttribute="centerY" id="cK5-0M-wtF"/>
                 <constraint firstItem="M2a-2e-qgt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="dtj-x2-QOi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PUI-zD-VJn" secondAttribute="trailing" constant="25" id="hOk-vw-EAT"/>
                 <constraint firstItem="sw5-Tz-wil" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="iAq-WH-5xQ"/>
                 <constraint firstItem="CjL-RM-Vwj" firstAttribute="top" secondItem="sw5-Tz-wil" secondAttribute="bottom" constant="25" id="nQs-3E-ZLN"/>
+                <constraint firstItem="Epj-LL-HNS" firstAttribute="trailing" secondItem="M2a-2e-qgt" secondAttribute="trailing" id="omH-ok-KJV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6WC-Yn-Umt" secondAttribute="trailing" constant="25" id="q0x-lT-FNc"/>
                 <constraint firstItem="PUI-zD-VJn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="qQ0-Qk-OpE"/>
                 <constraint firstItem="kPd-ez-2kr" firstAttribute="trailing" secondItem="6WC-Yn-Umt" secondAttribute="trailing" constant="5" id="qi0-C1-J9f"/>
@@ -104,11 +126,14 @@
             </constraints>
             <point key="canvasLocation" x="132" y="100"/>
         </view>
+        <tapGestureRecognizer id="5Ac-1E-OX0">
+            <connections>
+                <action selector="onAddMediaTypeTapped:" destination="-1" id="VH1-MH-je3"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="itunes_template" width="512" height="512"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="plus" width="64" height="64"/>
     </resources>
 </document>

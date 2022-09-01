@@ -8,12 +8,15 @@
 import Foundation
 import UIKit
 
+typealias MediaTypesSelectionHandler = (_ mediaTypes: [String]) -> Void
+
 protocol HomeCoordinatorDelegate: Coordinator {
+    func navigateToSelectMediaTypes(mediaTypes: [String], selectedMediaTypes: [String], selectedTypes: @escaping MediaTypesSelectionHandler)
     func navigateToDetails()
 }
 
 class HomeCoordinator: HomeCoordinatorDelegate {
-
+    
     var navigationController: UINavigationController
     weak var appCoordinator: AppCoordinator!
     
@@ -26,22 +29,28 @@ class HomeCoordinator: HomeCoordinatorDelegate {
         let viewController = HomeViewController()
         let interactor = HomeInteractor()
         let presenter = HomePresenter()
-       
+        
         viewController.interactor = interactor
         interactor.presenter = presenter
         presenter.view = viewController
         viewController.coordinator = self
-
+        
         navigationController.pushViewController(viewController, animated: true)
         navigationController.viewControllers = [viewController]
         
+    }
+    
+    func navigateToSelectMediaTypes(mediaTypes: [String], selectedMediaTypes: [String], selectedTypes: @escaping MediaTypesSelectionHandler) {
+        
+        let viewController = SelectMediaTypeViewController(mediaTypes: mediaTypes, selectedMediaTypes: selectedMediaTypes) { [weak self] mediaTypes in
+            selectedTypes(mediaTypes)
+        }
+        viewController.coordinator = self
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func navigateToDetails() {
         
     }
     
-    func popViewController() {
-        
-    }
 }
