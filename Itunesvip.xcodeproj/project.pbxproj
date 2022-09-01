@@ -763,7 +763,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "itunes-vip/Info.plist";
+				INFOPLIST_FILE = "itunes-vip/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Itunesvip;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -795,7 +795,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "itunes-vip/Info.plist";
+				INFOPLIST_FILE = "itunes-vip/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Itunesvip;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
