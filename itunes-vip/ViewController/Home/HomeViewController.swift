@@ -87,6 +87,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? SelectedMedia {
             
             cell.data = selectedMediaTypes[indexPath.row]
+            cell.removeTapped = { [weak self] in
+                // create remove function in interactor
+            }
             
             return cell
             
@@ -102,7 +105,7 @@ extension HomeViewController: HomeViewDelegate {
     
     func setSelectedMediaTypes(mediaTypes: [String]) {
         self.selectedMediaTypes = mediaTypes
-        if mediaTypes.isEmpty {
+        if !mediaTypes.isEmpty {
             collectionView.backgroundColor = .white
             messageLabel.isHidden = true
         }
@@ -110,7 +113,9 @@ extension HomeViewController: HomeViewDelegate {
     }
     
     func setEmptyMediaView() {
+        self.selectedMediaTypes.removeAll()
         collectionView.backgroundColor = UIColor(named: Colors.EmptyCollectionView.rawValue)
         messageLabel.isHidden = false
+        self.collectionView.reloadData()
     }
 }

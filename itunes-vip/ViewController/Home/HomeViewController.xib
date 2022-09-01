@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,7 +56,7 @@
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="M2a-2e-qgt">
                     <rect key="frame" x="25" y="465" width="364" height="200"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="EmptyCollectionView"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="WCp-uB-Sa9"/>
                     </constraints>
@@ -88,7 +89,7 @@
                         <outletCollection property="gestureRecognizers" destination="5Ac-1E-OX0" appends="YES" id="xuK-Ek-XFT"/>
                     </connections>
                 </imageView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No media type selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epj-LL-HNS">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No media type selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epj-LL-HNS">
                     <rect key="frame" x="25" y="556" width="364" height="18"/>
                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,5 +136,8 @@
     <resources>
         <image name="itunes_template" width="512" height="512"/>
         <image name="plus" width="64" height="64"/>
+        <namedColor name="EmptyCollectionView">
+            <color red="0.95477609536082475" green="0.95477609536082475" blue="0.95477609536082475" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>
