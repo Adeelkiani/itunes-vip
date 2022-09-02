@@ -15,12 +15,12 @@ class SelectMediaTypeViewController: UIViewController {
     
     var coordinator: HomeCoordinatorDelegate!
     
-    var mediaTypes: [String] = []
-    var selectedMediaTypes: [String] = []
+    var mediaTypes: [MediaTypePayload] = []
+    var selectedMediaTypes: [MediaTypePayload] = []
     var interactor: HomeInteractorDelegate?
     var handler: MediaTypesSelectionHandler?
     
-    convenience init(mediaTypes: [String], selectedMediaTypes: [String], handler: @escaping MediaTypesSelectionHandler) {
+    convenience init(mediaTypes: [MediaTypePayload], selectedMediaTypes: [MediaTypePayload], handler: @escaping MediaTypesSelectionHandler) {
         self.init()
         self.mediaTypes = mediaTypes
         self.selectedMediaTypes = selectedMediaTypes

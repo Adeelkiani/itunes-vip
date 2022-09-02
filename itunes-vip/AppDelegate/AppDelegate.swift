@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ANLoader
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,10 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         prepareWindow()
+        configureLoader()
         
         return true
     }
-
+    
+    func configureLoader(iconColor: UIColor = .white, textColor: UIColor = .white, loaderBackgroundColor: UIColor = .darkGray) {
+        ANLoader.activityColor = iconColor
+        ANLoader.activityTextColor = textColor
+        ANLoader.activityBackgroundColor = loaderBackgroundColor
+        ANLoader.activityTextFontName = Fonts.font(fontWeight: .book, fontSize: 16)
+    }
 }
 
 extension AppDelegate {

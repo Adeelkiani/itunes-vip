@@ -7,7 +7,11 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - MediaType
 struct MediaType: Codable {
-    let mediaTypes: [String]?
+    let mediaTypes: [MediaTypePayload]?
+}
+// MARK: - MediaType
+struct MediaTypePayload: Codable, Equatable {
+    let title, parameter: String?
 }

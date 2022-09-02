@@ -8,20 +8,20 @@
 import Foundation
 
 protocol HomePresenterDelegate {
-    func presentMediaTypes(mediaTypes: [String])
-    func presentSelectedMediaTypes(mediaTypes: [String])
+    func presentMediaTypes(mediaTypes: [MediaTypePayload])
+    func presentSelectedMediaTypes(mediaTypes: [MediaTypePayload])
 }
 
 class HomePresenter: HomePresenterDelegate {
     var view: HomeViewDelegate?
     
-    func presentMediaTypes(mediaTypes: [String]) {
-        self.view?.setMediaTypes(mediaTypes: mediaTypes)
+    func presentMediaTypes(mediaTypes: [MediaTypePayload]) {
+        self.view?.setMediaTypes(mediaTypes: mediaTypes.sorted(by: {$0.title ?? "" < $1.title ?? ""}))
     }
     
-    func presentSelectedMediaTypes(mediaTypes: [String]) {
+    func presentSelectedMediaTypes(mediaTypes: [MediaTypePayload]) {
         if !mediaTypes.isEmpty {
-            self.view?.setSelectedMediaTypes(mediaTypes: mediaTypes)
+            self.view?.setSelectedMediaTypes(mediaTypes: mediaTypes.sorted(by: {$0.title ?? "" < $1.title ?? ""}))
         } else {
             self.view?.setEmptyMediaView()
         }

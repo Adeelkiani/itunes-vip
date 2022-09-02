@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-typealias MediaTypesSelectionHandler = (_ mediaTypes: [String]) -> Void
+typealias MediaTypesSelectionHandler = (_ mediaTypes: [MediaTypePayload]) -> Void
 
 protocol HomeCoordinatorDelegate: Coordinator {
-    func navigateToSelectMediaTypes(mediaTypes: [String], selectedMediaTypes: [String], selectedTypes: @escaping MediaTypesSelectionHandler)
+    func navigateToSelectMediaTypes(mediaTypes: [MediaTypePayload], selectedMediaTypes: [MediaTypePayload], selectedTypes: @escaping MediaTypesSelectionHandler)
     func navigateToDetails()
 }
 
@@ -40,7 +40,7 @@ class HomeCoordinator: HomeCoordinatorDelegate {
         
     }
     
-    func navigateToSelectMediaTypes(mediaTypes: [String], selectedMediaTypes: [String], selectedTypes: @escaping MediaTypesSelectionHandler) {
+    func navigateToSelectMediaTypes(mediaTypes: [MediaTypePayload], selectedMediaTypes: [MediaTypePayload], selectedTypes: @escaping MediaTypesSelectionHandler) {
         
         let viewController = SelectMediaTypeViewController(mediaTypes: mediaTypes, selectedMediaTypes: selectedMediaTypes) { [weak self] mediaTypes in
             selectedTypes(mediaTypes)

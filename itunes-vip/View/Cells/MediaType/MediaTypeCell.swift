@@ -11,9 +11,9 @@ class MediaTypeCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var data: String! {
+    var data: MediaTypePayload! {
         didSet {
-            self.titleLabel.text = data
+            self.titleLabel.text = data.title ?? ""
         }
     }
     

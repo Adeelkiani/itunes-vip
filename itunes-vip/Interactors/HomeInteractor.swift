@@ -9,12 +9,13 @@ import Foundation
 
 protocol HomeInteractorDelegate {
     func loadMediaTypes()
-    func setSelectedMediaTypes(mediaTypes: [String])
+    func setSelectedMediaTypes(mediaTypes: [MediaTypePayload])
+    func removeSelectedMedia(type: MediaTypePayload)
 }
 
 class HomeInteractor: HomeInteractorDelegate {
     var presenter: HomePresenterDelegate?
-    var selectedMediaTypes: [String] = []
+    var selectedMediaTypes: [MediaTypePayload] = []
     
     func loadMediaTypes() {
         
@@ -26,8 +27,13 @@ class HomeInteractor: HomeInteractorDelegate {
         presenter?.presentMediaTypes(mediaTypes: data.mediaTypes ?? [])
     }
     
-    func setSelectedMediaTypes(mediaTypes: [String]) {
+    func setSelectedMediaTypes(mediaTypes: [MediaTypePayload]) {
         self.selectedMediaTypes = mediaTypes
         presenter?.presentSelectedMediaTypes(mediaTypes: mediaTypes)
+    }
+    
+    func removeSelectedMedia(type: MediaTypePayload) {
+        self.selectedMediaTypes.removeAll(where: {$0 == type})
+        presenter?.presentSelectedMediaTypes(mediaTypes: selectedMediaTypes)
     }
 }

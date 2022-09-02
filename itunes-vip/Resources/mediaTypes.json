@@ -1,12 +1,32 @@
 {
   "mediaTypes": [
-    "Album",
-    "Artist",
-    "Book",
-    "Movie",
-    "Music Video",
-    "Podcast",
-    "Song"
+    {
+      "title": "Album",
+      "parameter": "album"
+    },
+    {
+      "title": "Artist",
+      "parameter": "allArtist"
+    },
+    {
+      "title": "Book",
+      "parameter": "ebook"
+    },
+    {
+      "title": "Movie",
+      "parameter": "movie"
+    },
+    {
+      "title": "Music Video",
+      "parameter": "musicVideo"
+    },
+    {
+      "title": "Podcast",
+      "parameter": "podcast"
+    },
+    {
+      "title": "Song",
+      "parameter": "song"
+    }
   ]
 }
-

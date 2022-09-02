@@ -7,16 +7,16 @@
 
 import UIKit
 
-class SelectedMedia: UICollectionViewCell {
+class SelectedMediaCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var parentView: UIView!
 
     var removeTapped: (() -> Void)?
     
-    var data: String! {
+    var data: MediaTypePayload! {
         didSet {
-            self.titleLabel.text = data
+            self.titleLabel.text = data.title ?? ""
         }
     }
     
@@ -38,7 +38,7 @@ class SelectedMedia: UICollectionViewCell {
         self.layer.masksToBounds = false
     }
     
-    @IBAction func onRemoveMediaTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func onRemoveMediaTapped(_ sender: Any) {
         removeTapped?()
     }
 }

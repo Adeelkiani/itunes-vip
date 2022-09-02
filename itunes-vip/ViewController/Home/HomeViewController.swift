@@ -8,8 +8,8 @@
 import UIKit
 
 protocol HomeViewDelegate {
-    func setMediaTypes(mediaTypes: [String])
-    func setSelectedMediaTypes(mediaTypes: [String])
+    func setMediaTypes(mediaTypes: [MediaTypePayload])
+    func setSelectedMediaTypes(mediaTypes: [MediaTypePayload])
     func setEmptyMediaView()
 }
 
@@ -19,13 +19,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var messageLabel: UILabel!
     
-    let cellName = "SelectedMedia"
+    let cellName = "SelectedMediaCell"
     
     var coordinator: HomeCoordinatorDelegate!
     var interactor: HomeInteractorDelegate?
     
-    var mediaTypes: [String] = []
-    var selectedMediaTypes: [String] = []
+    var mediaTypes: [MediaTypePayload] = []
+    var selectedMediaTypes: [MediaTypePayload] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,13 +84,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? SelectedMedia {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? SelectedMediaCell {
             
             cell.data = selectedMediaTypes[indexPath.row]
             cell.removeTapped = { [weak self] in
-                // create remove function in interactor
+                if let type = self?.selectedMediaTypes[indexPath.row] {
+                    self?.interactor?.removeSelectedMedia(type: type)
+                }
             }
-            
             return cell
             
         }
@@ -99,11 +100,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 extension HomeViewController: HomeViewDelegate {
    
-    func setMediaTypes(mediaTypes: [String]) {
+    func setMediaTypes(mediaTypes: [MediaTypePayload]) {
         self.mediaTypes = mediaTypes
     }
     
-    func setSelectedMediaTypes(mediaTypes: [String]) {
+    func setSelectedMediaTypes(mediaTypes: [MediaTypePayload]) {
         self.selectedMediaTypes = mediaTypes
         if !mediaTypes.isEmpty {
             collectionView.backgroundColor = .white
