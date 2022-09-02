@@ -14,7 +14,7 @@ class SelectMediaTypeViewController: UIViewController {
     let cellName = "MediaTypeCell"
     
     var coordinator: HomeCoordinatorDelegate!
-    
+
     var mediaTypes: [MediaTypePayload] = []
     var selectedMediaTypes: [MediaTypePayload] = []
     var interactor: HomeInteractorDelegate?

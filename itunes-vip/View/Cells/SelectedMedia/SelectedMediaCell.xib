@@ -20,7 +20,7 @@
                         <rect key="frame" x="5" y="5" width="312" height="72"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZ8-zh-NwE">
-                                <rect key="frame" x="5" y="0.0" width="262" height="67"/>
+                                <rect key="frame" x="10" y="0.0" width="257" height="67"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xZ8-zh-NwE" firstAttribute="leading" secondItem="t27-w0-Omq" secondAttribute="leading" constant="5" id="4wh-Rn-OE6"/>
+                            <constraint firstItem="xZ8-zh-NwE" firstAttribute="leading" secondItem="t27-w0-Omq" secondAttribute="leading" constant="10" id="4wh-Rn-OE6"/>
                             <constraint firstItem="II0-qK-GoN" firstAttribute="leading" secondItem="xZ8-zh-NwE" secondAttribute="trailing" constant="10" id="AEj-5S-K9K"/>
                             <constraint firstAttribute="trailing" secondItem="II0-qK-GoN" secondAttribute="trailing" constant="10" id="IOH-md-PBP"/>
                             <constraint firstAttribute="bottom" secondItem="xZ8-zh-NwE" secondAttribute="bottom" constant="5" id="KIv-zj-9ve"/>

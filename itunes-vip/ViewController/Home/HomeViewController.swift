@@ -22,13 +22,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var messageLabel: UILabel!
     
-    let cellName = "SelectedMediaCell"
-    
     var coordinator: HomeCoordinatorDelegate!
     var interactor: HomeInteractorDelegate?
     
     var mediaTypes: [MediaTypePayload] = []
     var selectedMediaTypes: [MediaTypePayload] = []
+    
+    let cellName = "SelectedMediaCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +48,17 @@ class HomeViewController: UIViewController {
         collectionView.register(UINib(nibName: cellName, bundle: nil), forCellWithReuseIdentifier: cellName)
     }
     
-    private func validateField() -> Bool {
-        if searchField.hasText {
-           return true
+    private func validate() -> Bool {
+        if !searchField.hasText {
+            self.showAlert(message: "Search field cannot be empty")
+           return false
         }
-        return false
+        
+        if selectedMediaTypes.isEmpty {
+            self.showAlert(message: "Please select at least one mediaType")
+            return false
+        }
+        return true
     }
 
     @IBAction func onAddMediaTypeTapped(_ sender: UITapGestureRecognizer) {
@@ -64,11 +70,9 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func onSubmitTapped(_ sender: Any) {
-        if validateField() {
+        if validate() {
             self.showLoader(text: "Loading content...")
             self.interactor?.fetchContent(searchQuery: searchField.text ?? "")
-        } else {
-            self.showAlert(message: "Search field cannot be empty")
         }
     }
 }
@@ -125,13 +129,14 @@ extension HomeViewController: HomeViewDelegate {
     }
     
     func contentDidLoaded(content: [String: [ContentPayload]]) {
-        self.hideLoader {
+        self.hideLoader { [weak self] in
+            self?.coordinator.navigateToContent(content: content)
         }
     }
     
     func contentDidFailed(error: String) {
-        self.hideLoader {
-            self.showAlert(title: "Error", message: error)
+        self.hideLoader { [weak self] in
+            self?.showAlert(title: "Error", message: error)
         }
     }
 }

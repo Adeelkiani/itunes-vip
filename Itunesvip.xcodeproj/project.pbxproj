@@ -40,6 +40,16 @@
 		D8BEDBC328C13BB2004FDB71 /* MediaTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BEDBC128C13BB2004FDB71 /* MediaTypeCell.swift */; };
 		D8BEDBC428C13BB2004FDB71 /* MediaTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BEDBC228C13BB2004FDB71 /* MediaTypeCell.xib */; };
 		D8FBD4D028C1DE1C0064950C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4CF28C1DE1C0064950C /* Fonts.swift */; };
+		D8FBD4D528C216430064950C /* ContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4D428C216430064950C /* ContentCoordinator.swift */; };
+		D8FBD4D928C217450064950C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4D728C217450064950C /* ContentViewController.swift */; };
+		D8FBD4DA28C217450064950C /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FBD4D828C217450064950C /* ContentViewController.xib */; };
+		D8FBD4DC28C21BEF0064950C /* ContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4DB28C21BEF0064950C /* ContentInteractor.swift */; };
+		D8FBD4DE28C21C530064950C /* ContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4DD28C21C530064950C /* ContentPresenter.swift */; };
+		D8FBD4E228C228180064950C /* GridContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4E028C228180064950C /* GridContentCell.swift */; };
+		D8FBD4E328C228180064950C /* GridContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FBD4E128C228180064950C /* GridContentCell.xib */; };
+		D8FBD4E628C22C960064950C /* ListContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4E428C22C960064950C /* ListContentCell.swift */; };
+		D8FBD4E728C22C960064950C /* ListContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FBD4E528C22C960064950C /* ListContentCell.xib */; };
+		D8FBD4E928C23ABB0064950C /* UIImageView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4E828C23ABB0064950C /* UIImageView+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +115,16 @@
 		D8BEDBC128C13BB2004FDB71 /* MediaTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypeCell.swift; sourceTree = "<group>"; };
 		D8BEDBC228C13BB2004FDB71 /* MediaTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaTypeCell.xib; sourceTree = "<group>"; };
 		D8FBD4CF28C1DE1C0064950C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		D8FBD4D428C216430064950C /* ContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoordinator.swift; sourceTree = "<group>"; };
+		D8FBD4D728C217450064950C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		D8FBD4D828C217450064950C /* ContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
+		D8FBD4DB28C21BEF0064950C /* ContentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInteractor.swift; sourceTree = "<group>"; };
+		D8FBD4DD28C21C530064950C /* ContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPresenter.swift; sourceTree = "<group>"; };
+		D8FBD4E028C228180064950C /* GridContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContentCell.swift; sourceTree = "<group>"; };
+		D8FBD4E128C228180064950C /* GridContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridContentCell.xib; sourceTree = "<group>"; };
+		D8FBD4E428C22C960064950C /* ListContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentCell.swift; sourceTree = "<group>"; };
+		D8FBD4E528C22C960064950C /* ListContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListContentCell.xib; sourceTree = "<group>"; };
+		D8FBD4E828C23ABB0064950C /* UIImageView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Helper.swift"; sourceTree = "<group>"; };
 		DE2825FED576F233526A9446 /* Pods-itunes-vip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes-vip.debug.xcconfig"; path = "Target Support Files/Pods-itunes-vip/Pods-itunes-vip.debug.xcconfig"; sourceTree = "<group>"; };
 		EDAEFAEA6AEB52678CFC0328 /* Pods-Itunesvip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itunesvip.debug.xcconfig"; path = "Target Support Files/Pods-Itunesvip/Pods-Itunesvip.debug.xcconfig"; sourceTree = "<group>"; };
 		EFCC9B1E6E604E77444859C3 /* Pods-ItunesvipTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItunesvipTests.release.xcconfig"; path = "Target Support Files/Pods-ItunesvipTests/Pods-ItunesvipTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -258,6 +278,7 @@
 				D8174D3A28BFC9B5009EF4D0 /* UIView+Helper.swift */,
 				D8B9848A28C0BD9E00987E37 /* Codeable+Helper.swift */,
 				D8BEDBB928C1305C004FDB71 /* UIViewController+Helper.swift */,
+				D8FBD4E828C23ABB0064950C /* UIImageView+Helper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -265,6 +286,7 @@
 		D8174D3C28BFC9F6009EF4D0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D8FBD4D628C217220064950C /* Content */,
 				D8BEDBBB28C1310A004FDB71 /* SelectMediaType */,
 				D8174D3D28BFCA54009EF4D0 /* Home */,
 			);
@@ -285,6 +307,7 @@
 			children = (
 				D8174D4328BFCC5B009EF4D0 /* AppCoordinator.swift */,
 				D8174D4528BFD13A009EF4D0 /* HomeCoordinator.swift */,
+				D8FBD4D428C216430064950C /* ContentCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -293,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				D8B9847728C087E500987E37 /* HomeInteractor.swift */,
+				D8FBD4DB28C21BEF0064950C /* ContentInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -301,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				D8B9847928C0884100987E37 /* HomePresenter.swift */,
+				D8FBD4DD28C21C530064950C /* ContentPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -353,6 +378,7 @@
 		D8BEDBB328C0CE5E004FDB71 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D8FBD4DF28C227FB0064950C /* Content */,
 				D8BEDBC028C13B8C004FDB71 /* MediaType */,
 				D8BEDBB428C0CE6D004FDB71 /* SelectedMedia */,
 			);
@@ -384,6 +410,26 @@
 				D8BEDBC228C13BB2004FDB71 /* MediaTypeCell.xib */,
 			);
 			path = MediaType;
+			sourceTree = "<group>";
+		};
+		D8FBD4D628C217220064950C /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				D8FBD4D728C217450064950C /* ContentViewController.swift */,
+				D8FBD4D828C217450064950C /* ContentViewController.xib */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		D8FBD4DF28C227FB0064950C /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				D8FBD4E028C228180064950C /* GridContentCell.swift */,
+				D8FBD4E128C228180064950C /* GridContentCell.xib */,
+				D8FBD4E428C22C960064950C /* ListContentCell.swift */,
+				D8FBD4E528C22C960064950C /* ListContentCell.xib */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,10 +543,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8174D4A28BFDB7D009EF4D0 /* .swiftlint.yml in Resources */,
+				D8FBD4E328C228180064950C /* GridContentCell.xib in Resources */,
 				D8BEDBB828C0CEA8004FDB71 /* SelectedMediaCell.xib in Resources */,
+				D8FBD4DA28C217450064950C /* ContentViewController.xib in Resources */,
 				D8B9848628C0BB4900987E37 /* mediaTypes.json in Resources */,
 				D8BEDBBF28C13131004FDB71 /* SelectMediaTypeViewController.xib in Resources */,
 				D8BEDBC428C13BB2004FDB71 /* MediaTypeCell.xib in Resources */,
+				D8FBD4E728C22C960064950C /* ListContentCell.xib in Resources */,
 				D8174D0F28BFC874009EF4D0 /* LaunchScreen.storyboard in Resources */,
 				D8174D0C28BFC874009EF4D0 /* Assets.xcassets in Resources */,
 				D8174D4128BFCBF1009EF4D0 /* HomeViewController.xib in Resources */,
@@ -650,22 +699,29 @@
 			files = (
 				D8BEDBBA28C1305C004FDB71 /* UIViewController+Helper.swift in Sources */,
 				D8B9847D28C0947100987E37 /* NetworkService.swift in Sources */,
+				D8FBD4D528C216430064950C /* ContentCoordinator.swift in Sources */,
 				D8174D0328BFC873009EF4D0 /* AppDelegate.swift in Sources */,
+				D8FBD4DE28C21C530064950C /* ContentPresenter.swift in Sources */,
 				D8174D0528BFC873009EF4D0 /* SceneDelegate.swift in Sources */,
 				D8174D3828BFC96C009EF4D0 /* BaseXibLoader.swift in Sources */,
 				D8BEDBBE28C13131004FDB71 /* SelectMediaTypeViewController.swift in Sources */,
 				D8BEDBB728C0CEA8004FDB71 /* SelectedMediaCell.swift in Sources */,
+				D8FBD4DC28C21BEF0064950C /* ContentInteractor.swift in Sources */,
 				D8B9847828C087E500987E37 /* HomeInteractor.swift in Sources */,
 				D8BEDBC328C13BB2004FDB71 /* MediaTypeCell.swift in Sources */,
 				D8B9848028C09CA000987E37 /* ContentModel.swift in Sources */,
 				D8174D3B28BFC9B5009EF4D0 /* UIView+Helper.swift in Sources */,
 				D8174D4628BFD13A009EF4D0 /* HomeCoordinator.swift in Sources */,
+				D8FBD4E628C22C960064950C /* ListContentCell.swift in Sources */,
+				D8FBD4E228C228180064950C /* GridContentCell.swift in Sources */,
+				D8FBD4D928C217450064950C /* ContentViewController.swift in Sources */,
 				D8B9847A28C0884100987E37 /* HomePresenter.swift in Sources */,
 				D8B9848928C0BCE100987E37 /* MediaType.swift in Sources */,
 				D8174D4028BFCBF1009EF4D0 /* HomeViewController.swift in Sources */,
 				D8174D4428BFCC5B009EF4D0 /* AppCoordinator.swift in Sources */,
 				D8B9848B28C0BD9E00987E37 /* Codeable+Helper.swift in Sources */,
 				D8FBD4D028C1DE1C0064950C /* Fonts.swift in Sources */,
+				D8FBD4E928C23ABB0064950C /* UIImageView+Helper.swift in Sources */,
 				D8B9848328C0B1B700987E37 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

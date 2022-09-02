@@ -33,6 +33,7 @@ class HomePresenter: HomePresenterDelegate {
     
     func presentContent() {
         self.view?.contentDidLoaded(content: formatContentList)
+        self.formatContentList.removeAll()
     }
     
     func formatContent(mediaType: String, content: [ContentPayload]) {

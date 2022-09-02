@@ -12,7 +12,7 @@ typealias MediaTypesSelectionHandler = (_ mediaTypes: [MediaTypePayload]) -> Voi
 
 protocol HomeCoordinatorDelegate: Coordinator {
     func navigateToSelectMediaTypes(mediaTypes: [MediaTypePayload], selectedMediaTypes: [MediaTypePayload], selectedTypes: @escaping MediaTypesSelectionHandler)
-    func navigateToDetails()
+    func navigateToContent(content: [String: [ContentPayload]])
 }
 
 class HomeCoordinator: HomeCoordinatorDelegate {
@@ -49,8 +49,10 @@ class HomeCoordinator: HomeCoordinatorDelegate {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func navigateToDetails() {
+    func navigateToContent(content: [String: [ContentPayload]]) {
         
+        let coordinator = ContentCoordinator(navigationController: navigationController)
+        coordinator.openViewController(data: content)
     }
     
 }

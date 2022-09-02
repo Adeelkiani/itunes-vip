@@ -23,11 +23,23 @@ let MEDIA_FILE = "mediaTypes"
 
 enum Colors: String {
     case EmptyCollectionView = "EmptyCollectionView"
+    case SectionHeader = "SectionHeader"
+    
 }
 
 enum HTTP_CODE: Int {
-case HTTP_200 = 200
-case HTTP_400 = 400
-case HTTP_500 = 500
+    case HTTP_200 = 200
+    case HTTP_400 = 400
+    case HTTP_500 = 500
     
+}
+
+enum MediaTypes: String {
+case Album = "Album"
+case Artist = "Artist"
+case Book = "Book"
+case Movie = "Movie"
+case MusicVideo = "Music Video"
+case Podcast = "Podcast"
+case Song = "Song"
 }
