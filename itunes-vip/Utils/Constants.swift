@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // PRODUCTION URL Constants
 let API_URL = "https://itunes.apple.com"
@@ -22,4 +23,11 @@ let MEDIA_FILE = "mediaTypes"
 
 enum Colors: String {
     case EmptyCollectionView = "EmptyCollectionView"
+}
+
+enum HTTP_CODE: Int {
+case HTTP_200 = 200
+case HTTP_400 = 400
+case HTTP_500 = 500
+    
 }

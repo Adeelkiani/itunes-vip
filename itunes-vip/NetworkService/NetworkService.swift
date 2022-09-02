@@ -14,7 +14,6 @@ class NetworkService {
     
     private init() {}
     
-    /// This function is used to call API with parameters in GET request.
     func makeGetRequest<T: Decodable> (model: T.Type, path: String, parameters: [String: Any], onResult: @escaping ((T) -> Void), onError: @escaping ((String?) -> Void)) {
         
         AF.request(path, method: .get, parameters: parameters).responseDecodable(of: T.self) { response in
@@ -27,9 +26,19 @@ class NetworkService {
             switch response.result {
             case .success(let post):
                 DispatchQueue.main.async {
-                    onResult(post)
+                    
+                    let statusCode = response.response?.statusCode ?? 0
+                    let code = HTTP_CODE(rawValue: statusCode)
+             
+                    switch code {
+                    case .HTTP_200:
+                        onResult(post)
+                    case .HTTP_400, .HTTP_500:
+                        onError("Something went wrong")
+                    default:
+                        onError("Something weird happend")
+                    }
                 }
-                print("Recieved post: \(post)")
                 
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -38,4 +47,5 @@ class NetworkService {
             }
         }
     }
+
 }

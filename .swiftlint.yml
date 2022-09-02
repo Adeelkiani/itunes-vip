@@ -1,46 +1,49 @@
 disabled_rules: # rule identifiers to exclude from running
-  - line_length
-  - trailing_whitespace
-  - identifier_name
-  - explicit_type_interface
-  - sorted_imports
-  - todo
-  - implicit_getter
+    - line_length
+    - trailing_whitespace
+    - identifier_name
+    - explicit_type_interface
+    - sorted_imports
+    - todo
+    - implicit_getter
 
 opt_in_rules: # some rules are only opt-in
-  - attributes
-  - closure_end_indentation
-  - conditional_returns_on_newline
-  - empty_count
-  - literal_expression_end_indentation
-  - object_literal
-  - operator_usage_whitespace
-  - redundant_nil_coalescing
-  - unneeded_parentheses_in_closure_argument
-  
+    - attributes
+    - closure_end_indentation
+    - conditional_returns_on_newline
+    - empty_count
+    - literal_expression_end_indentation
+    - object_literal
+    - operator_usage_whitespace
+    - redundant_nil_coalescing
+    - unneeded_parentheses_in_closure_argument
+    
+type_name:
+    allowed_symbols: "_"
+    
 excluded:
-  - Pods
-  - ItunesvipTests
-  - ItunesvipUITests
-  
+    - Pods
+    - ItunesvipTests
+    - ItunesvipUITests
+
 # configurable rules can be customized from this configuration file
 # binary rules can set their severity level
 cyclomatic_complexity: 25
 force_cast:
-  severity: warning # explicitly
+    severity: warning # explicitly
 force_try:
-  severity: warning # explicitly
+    severity: warning # explicitly
 # rules that have both warning and error levels, can set just the warning level
 large_tuple: 3
 function_parameter_count: 5
 # they can set both implicitly with an array
 type_body_length:
-  - 200 # warning
-  - 300 # error
+    - 200 # warning
+    - 300 # error
 # or they can set both explicitly
 file_length:
-  warning: 700
-  error: 900
+    warning: 700
+    error: 900
 # function body length set to 50
 function_body_length: 80
 # naming rules can set warnings/errors for min_length and max_length

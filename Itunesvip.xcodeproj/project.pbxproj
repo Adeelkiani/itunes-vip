@@ -27,7 +27,7 @@
 		D8B9847828C087E500987E37 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9847728C087E500987E37 /* HomeInteractor.swift */; };
 		D8B9847A28C0884100987E37 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9847928C0884100987E37 /* HomePresenter.swift */; };
 		D8B9847D28C0947100987E37 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9847C28C0947100987E37 /* NetworkService.swift */; };
-		D8B9848028C09CA000987E37 /* APIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9847F28C09CA000987E37 /* APIData.swift */; };
+		D8B9848028C09CA000987E37 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9847F28C09CA000987E37 /* ContentModel.swift */; };
 		D8B9848328C0B1B700987E37 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9848228C0B1B700987E37 /* Constants.swift */; };
 		D8B9848628C0BB4900987E37 /* mediaTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = D8B9848528C0BB4900987E37 /* mediaTypes.json */; };
 		D8B9848928C0BCE100987E37 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9848828C0BCE100987E37 /* MediaType.swift */; };
@@ -92,7 +92,7 @@
 		D8B9847728C087E500987E37 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		D8B9847928C0884100987E37 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		D8B9847C28C0947100987E37 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		D8B9847F28C09CA000987E37 /* APIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIData.swift; sourceTree = "<group>"; };
+		D8B9847F28C09CA000987E37 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		D8B9848228C0B1B700987E37 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D8B9848528C0BB4900987E37 /* mediaTypes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mediaTypes.json; sourceTree = "<group>"; };
 		D8B9848828C0BCE100987E37 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 		D8B9847E28C09C9100987E37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D8B9847F28C09CA000987E37 /* APIData.swift */,
+				D8B9847F28C09CA000987E37 /* ContentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -657,7 +657,7 @@
 				D8BEDBB728C0CEA8004FDB71 /* SelectedMediaCell.swift in Sources */,
 				D8B9847828C087E500987E37 /* HomeInteractor.swift in Sources */,
 				D8BEDBC328C13BB2004FDB71 /* MediaTypeCell.swift in Sources */,
-				D8B9848028C09CA000987E37 /* APIData.swift in Sources */,
+				D8B9848028C09CA000987E37 /* ContentModel.swift in Sources */,
 				D8174D3B28BFC9B5009EF4D0 /* UIView+Helper.swift in Sources */,
 				D8174D4628BFD13A009EF4D0 /* HomeCoordinator.swift in Sources */,
 				D8B9847A28C0884100987E37 /* HomePresenter.swift in Sources */,

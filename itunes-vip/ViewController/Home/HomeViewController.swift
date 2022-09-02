@@ -11,6 +11,9 @@ protocol HomeViewDelegate {
     func setMediaTypes(mediaTypes: [MediaTypePayload])
     func setSelectedMediaTypes(mediaTypes: [MediaTypePayload])
     func setEmptyMediaView()
+    func contentDidLoaded(content: [String: [ContentPayload]])
+    func contentDidFailed(error: String)
+
 }
 
 class HomeViewController: UIViewController {
@@ -62,7 +65,8 @@ class HomeViewController: UIViewController {
     
     @IBAction func onSubmitTapped(_ sender: Any) {
         if validateField() {
-            
+            self.showLoader(text: "Loading content...")
+            self.interactor?.fetchContent(searchQuery: searchField.text ?? "")
         } else {
             self.showAlert(message: "Search field cannot be empty")
         }
@@ -118,5 +122,16 @@ extension HomeViewController: HomeViewDelegate {
         collectionView.backgroundColor = UIColor(named: Colors.EmptyCollectionView.rawValue)
         messageLabel.isHidden = false
         self.collectionView.reloadData()
+    }
+    
+    func contentDidLoaded(content: [String: [ContentPayload]]) {
+        self.hideLoader {
+        }
+    }
+    
+    func contentDidFailed(error: String) {
+        self.hideLoader {
+            self.showAlert(title: "Error", message: error)
+        }
     }
 }
