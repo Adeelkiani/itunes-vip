@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContentViewController" customModule="Itunesvip" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="gY4-tb-nqf" id="FFL-mK-ERY"/>
+                <outlet property="collectionView" destination="VsJ-d3-NyA" id="qpK-fq-Mez"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,21 +32,27 @@
                         <action selector="onLayoutChange:" destination="-1" eventType="valueChanged" id="uIY-ir-Olo"/>
                     </connections>
                 </segmentedControl>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gY4-tb-nqf">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VsJ-d3-NyA">
                     <rect key="frame" x="0.0" y="124" width="414" height="738"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gHA-t0-CLf">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="50" height="60"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JwX-of-KkE" secondAttribute="trailing" constant="25" id="FF3-1D-Ld1"/>
-                <constraint firstItem="gY4-tb-nqf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="I7p-0A-I2S"/>
                 <constraint firstItem="JwX-of-KkE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="JYx-Mr-h9n"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gY4-tb-nqf" secondAttribute="bottom" id="RIH-3z-h1O"/>
-                <constraint firstItem="gY4-tb-nqf" firstAttribute="top" secondItem="JwX-of-KkE" secondAttribute="bottom" constant="10" id="VZY-FY-9wn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gY4-tb-nqf" secondAttribute="trailing" id="nDE-GK-eNj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VsJ-d3-NyA" secondAttribute="bottom" id="MD3-ly-K1h"/>
+                <constraint firstItem="VsJ-d3-NyA" firstAttribute="top" secondItem="JwX-of-KkE" secondAttribute="bottom" constant="10" id="YdI-Ig-ovZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VsJ-d3-NyA" secondAttribute="trailing" id="n8Y-nE-tD1"/>
                 <constraint firstItem="JwX-of-KkE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="ph8-la-oCo"/>
+                <constraint firstItem="VsJ-d3-NyA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tgt-5k-OVH"/>
             </constraints>
             <point key="canvasLocation" x="132" y="50"/>
         </view>

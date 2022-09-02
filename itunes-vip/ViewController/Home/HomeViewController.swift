@@ -76,6 +76,42 @@ class HomeViewController: UIViewController {
         }
     }
 }
+
+extension HomeViewController: HomeViewDelegate {
+   
+    func setMediaTypes(mediaTypes: [MediaTypePayload]) {
+        self.mediaTypes = mediaTypes
+    }
+    
+    func setSelectedMediaTypes(mediaTypes: [MediaTypePayload]) {
+        self.selectedMediaTypes = mediaTypes
+        if !mediaTypes.isEmpty {
+            collectionView.backgroundColor = .white
+            messageLabel.isHidden = true
+        }
+        self.collectionView.reloadData()
+    }
+    
+    func setEmptyMediaView() {
+        self.selectedMediaTypes.removeAll()
+        collectionView.backgroundColor = UIColor(named: "EmptyCollectionView")
+        messageLabel.isHidden = false
+        self.collectionView.reloadData()
+    }
+    
+    func contentDidLoaded(content: [String: [ContentPayload]]) {
+        self.hideLoader { [weak self] in
+            self?.coordinator.navigateToContent(content: content)
+        }
+    }
+    
+    func contentDidFailed(error: String) {
+        self.hideLoader { [weak self] in
+            self?.showAlert(title: "Error", message: error)
+        }
+    }
+}
+
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -104,39 +140,5 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         }
         return UICollectionViewCell()
-    }
-}
-extension HomeViewController: HomeViewDelegate {
-   
-    func setMediaTypes(mediaTypes: [MediaTypePayload]) {
-        self.mediaTypes = mediaTypes
-    }
-    
-    func setSelectedMediaTypes(mediaTypes: [MediaTypePayload]) {
-        self.selectedMediaTypes = mediaTypes
-        if !mediaTypes.isEmpty {
-            collectionView.backgroundColor = .white
-            messageLabel.isHidden = true
-        }
-        self.collectionView.reloadData()
-    }
-    
-    func setEmptyMediaView() {
-        self.selectedMediaTypes.removeAll()
-        collectionView.backgroundColor = UIColor(named: Colors.EmptyCollectionView.rawValue)
-        messageLabel.isHidden = false
-        self.collectionView.reloadData()
-    }
-    
-    func contentDidLoaded(content: [String: [ContentPayload]]) {
-        self.hideLoader { [weak self] in
-            self?.coordinator.navigateToContent(content: content)
-        }
-    }
-    
-    func contentDidFailed(error: String) {
-        self.hideLoader { [weak self] in
-            self?.showAlert(title: "Error", message: error)
-        }
     }
 }

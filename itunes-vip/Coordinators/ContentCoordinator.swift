@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ContentCoordinatorDelegate: Coordinator {
-    func navigateToDetails()
+    func navigateToDetails(mediaType: MediaTypes, content: ContentPayload)
 }
 
 class ContentCoordinator: ContentCoordinatorDelegate {
@@ -40,8 +40,12 @@ class ContentCoordinator: ContentCoordinatorDelegate {
         
     }
 
-    func navigateToDetails() {
-        
+    func navigateToDetails(mediaType: MediaTypes, content: ContentPayload) {
+    
+        let viewController = ContentDetailsViewController(mediaType: mediaType, content: content)
+        viewController.coordinator = self
+        navigationController.pushViewController(viewController, animated: true)
+
     }
     
 }

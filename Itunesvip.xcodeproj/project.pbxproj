@@ -50,6 +50,10 @@
 		D8FBD4E628C22C960064950C /* ListContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4E428C22C960064950C /* ListContentCell.swift */; };
 		D8FBD4E728C22C960064950C /* ListContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FBD4E528C22C960064950C /* ListContentCell.xib */; };
 		D8FBD4E928C23ABB0064950C /* UIImageView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4E828C23ABB0064950C /* UIImageView+Helper.swift */; };
+		D8FBD4EC28C268C90064950C /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4EA28C268C90064950C /* ContentHeaderView.swift */; };
+		D8FBD4ED28C268C90064950C /* ContentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FBD4EB28C268C90064950C /* ContentHeaderView.xib */; };
+		D8FBD4F128C2797C0064950C /* ContentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FBD4EF28C2797C0064950C /* ContentDetailsViewController.swift */; };
+		D8FBD4F228C2797C0064950C /* ContentDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FBD4F028C2797C0064950C /* ContentDetailsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +129,10 @@
 		D8FBD4E428C22C960064950C /* ListContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentCell.swift; sourceTree = "<group>"; };
 		D8FBD4E528C22C960064950C /* ListContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListContentCell.xib; sourceTree = "<group>"; };
 		D8FBD4E828C23ABB0064950C /* UIImageView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Helper.swift"; sourceTree = "<group>"; };
+		D8FBD4EA28C268C90064950C /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
+		D8FBD4EB28C268C90064950C /* ContentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentHeaderView.xib; sourceTree = "<group>"; };
+		D8FBD4EF28C2797C0064950C /* ContentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailsViewController.swift; sourceTree = "<group>"; };
+		D8FBD4F028C2797C0064950C /* ContentDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentDetailsViewController.xib; sourceTree = "<group>"; };
 		DE2825FED576F233526A9446 /* Pods-itunes-vip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes-vip.debug.xcconfig"; path = "Target Support Files/Pods-itunes-vip/Pods-itunes-vip.debug.xcconfig"; sourceTree = "<group>"; };
 		EDAEFAEA6AEB52678CFC0328 /* Pods-Itunesvip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itunesvip.debug.xcconfig"; path = "Target Support Files/Pods-Itunesvip/Pods-Itunesvip.debug.xcconfig"; sourceTree = "<group>"; };
 		EFCC9B1E6E604E77444859C3 /* Pods-ItunesvipTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItunesvipTests.release.xcconfig"; path = "Target Support Files/Pods-ItunesvipTests/Pods-ItunesvipTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +294,7 @@
 		D8174D3C28BFC9F6009EF4D0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D8FBD4EE28C278B30064950C /* ContentDetails */,
 				D8FBD4D628C217220064950C /* Content */,
 				D8BEDBBB28C1310A004FDB71 /* SelectMediaType */,
 				D8174D3D28BFCA54009EF4D0 /* Home */,
@@ -428,8 +437,19 @@
 				D8FBD4E128C228180064950C /* GridContentCell.xib */,
 				D8FBD4E428C22C960064950C /* ListContentCell.swift */,
 				D8FBD4E528C22C960064950C /* ListContentCell.xib */,
+				D8FBD4EA28C268C90064950C /* ContentHeaderView.swift */,
+				D8FBD4EB28C268C90064950C /* ContentHeaderView.xib */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		D8FBD4EE28C278B30064950C /* ContentDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D8FBD4EF28C2797C0064950C /* ContentDetailsViewController.swift */,
+				D8FBD4F028C2797C0064950C /* ContentDetailsViewController.xib */,
+			);
+			path = ContentDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,7 +566,9 @@
 				D8FBD4E328C228180064950C /* GridContentCell.xib in Resources */,
 				D8BEDBB828C0CEA8004FDB71 /* SelectedMediaCell.xib in Resources */,
 				D8FBD4DA28C217450064950C /* ContentViewController.xib in Resources */,
+				D8FBD4F228C2797C0064950C /* ContentDetailsViewController.xib in Resources */,
 				D8B9848628C0BB4900987E37 /* mediaTypes.json in Resources */,
+				D8FBD4ED28C268C90064950C /* ContentHeaderView.xib in Resources */,
 				D8BEDBBF28C13131004FDB71 /* SelectMediaTypeViewController.xib in Resources */,
 				D8BEDBC428C13BB2004FDB71 /* MediaTypeCell.xib in Resources */,
 				D8FBD4E728C22C960064950C /* ListContentCell.xib in Resources */,
@@ -700,7 +722,9 @@
 				D8BEDBBA28C1305C004FDB71 /* UIViewController+Helper.swift in Sources */,
 				D8B9847D28C0947100987E37 /* NetworkService.swift in Sources */,
 				D8FBD4D528C216430064950C /* ContentCoordinator.swift in Sources */,
+				D8FBD4EC28C268C90064950C /* ContentHeaderView.swift in Sources */,
 				D8174D0328BFC873009EF4D0 /* AppDelegate.swift in Sources */,
+				D8FBD4F128C2797C0064950C /* ContentDetailsViewController.swift in Sources */,
 				D8FBD4DE28C21C530064950C /* ContentPresenter.swift in Sources */,
 				D8174D0528BFC873009EF4D0 /* SceneDelegate.swift in Sources */,
 				D8174D3828BFC96C009EF4D0 /* BaseXibLoader.swift in Sources */,

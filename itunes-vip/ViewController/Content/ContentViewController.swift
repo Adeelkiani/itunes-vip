@@ -18,7 +18,7 @@ protocol ContentViewDelegate {
 
 class ContentViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var coordinator: ContentCoordinatorDelegate!
     var interactor: ContentInteractorDelegate?
@@ -26,6 +26,8 @@ class ContentViewController: UIViewController {
     var viewType: ViewType = .GRID
     var sectionHeaders: [String] = []
     var contentList: [String: [ContentPayload]] = [:]
+    
+    let contentHeaderName = "ContentHeaderView"
     let listCellName = "ListContentCell"
     let gridCellName = "GridContentCell"
     
@@ -44,12 +46,14 @@ class ContentViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.allowsMultipleSelection = true
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UINib(nibName: listCellName, bundle: nil), forCellReuseIdentifier: listCellName)
-        tableView.register(UINib(nibName: gridCellName, bundle: nil), forCellReuseIdentifier: gridCellName)
-        tableView.reloadData()
+        collectionView.allowsMultipleSelection = true
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        collectionView.register(UINib(nibName: contentHeaderName, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: contentHeaderName)
+        collectionView.register(UINib(nibName: listCellName, bundle: nil), forCellWithReuseIdentifier: listCellName)
+        collectionView.register(UINib(nibName: gridCellName, bundle: nil), forCellWithReuseIdentifier: gridCellName)
+        collectionView.reloadData()
     }
     
     private func setupNavigationBar() {
@@ -61,7 +65,7 @@ class ContentViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: barHeight).isActive = true
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "itunes_template")
+        imageView.image = #imageLiteral(resourceName: "itunes_template")
         
         let contentView = UIView()
         self.navigationItem.titleView = contentView
@@ -81,7 +85,7 @@ class ContentViewController: UIViewController {
         default: break
         }
         
-        self.tableView.reloadData()
+        self.collectionView.reloadData()
     }
 }
 
@@ -90,56 +94,66 @@ extension ContentViewController: ContentViewDelegate {
     func contentLoaded(sectionHeaders: [String], content: [String: [ContentPayload]]) {
         self.sectionHeaders = sectionHeaders
         self.contentList = content
-        self.tableView.reloadData()
+        self.collectionView.reloadData()
     }
 }
 
-extension ContentViewController: UITableViewDataSource, UITableViewDelegate {
+extension ContentViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        switch kind {
+            
+        case UICollectionView.elementKindSectionHeader:
+            
+            let headerView = collectionView.dequeueReusableSupplementaryView( ofKind: kind, withReuseIdentifier: "\(ContentHeaderView.self)", for: indexPath)
+            
+            guard let headerView = headerView as? ContentHeaderView
+                    
+            else { return headerView }
+            
+            let content = sectionHeaders[indexPath.section]
+            headerView.data = content
+            return headerView
+        default:
+            assert(false, "Invalid element type")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 90)
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sectionHeaders.count
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let sectionHeaderLabelView = UIView()
-        sectionHeaderLabelView.backgroundColor = UIColor(named: Colors.SectionHeader.rawValue)
-        
-        let sectionHeaderLabel = UILabel()
-        sectionHeaderLabel.text = sectionHeaders[section]
-        sectionHeaderLabel.textColor = .black
-        sectionHeaderLabel.font = Fonts.font(fontWeight: .bold, fontSize: 18)
-        sectionHeaderLabel.frame = CGRect(x: 10, y: 5, width: 250, height: 40)
-        sectionHeaderLabelView.addSubview(sectionHeaderLabel)
-        
-        return sectionHeaderLabelView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        switch viewType {
-        case .LIST:
-            return 120
-        case .GRID:
-            return 200
-        }
-    }
-        
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let sectionKey = sectionHeaders[section]
         return contentList[sectionKey]?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        switch viewType {
+        case .LIST:
+            return CGSize(width: self.collectionView.frame.width, height: 120)
+        case .GRID:
+            
+            let lay = collectionViewLayout as? UICollectionViewFlowLayout
+            let widthPerItem = collectionView.frame.width / 3 - (lay?.minimumInteritemSpacing ?? 10.0)
+            
+            return CGSize(width: widthPerItem, height: 180)
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch viewType {
         case .LIST:
             
-            if let cell = tableView.dequeueReusableCell(withIdentifier: listCellName, for: indexPath) as? ListContentCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: listCellName, for: indexPath) as? ListContentCell {
                 
                 let sectionKey = sectionHeaders[indexPath.section]
                 if let data = contentList[sectionKey]?[indexPath.row] {
@@ -151,7 +165,7 @@ extension ContentViewController: UITableViewDataSource, UITableViewDelegate {
             
         case .GRID:
             
-            if let cell = tableView.dequeueReusableCell(withIdentifier: gridCellName, for: indexPath) as? GridContentCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridCellName, for: indexPath) as? GridContentCell {
                 
                 let sectionKey = sectionHeaders[indexPath.section]
                 if let data = contentList[sectionKey]?[indexPath.row] {
@@ -161,7 +175,19 @@ extension ContentViewController: UITableViewDataSource, UITableViewDelegate {
                 return cell
             }
         }
-        return UITableViewCell()
+        return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let sectionKey = sectionHeaders[indexPath.section]
+        if let data = contentList[sectionKey]?[indexPath.row], let mediaType = MediaTypes(rawValue: sectionKey) {
+            
+            if mediaType != .Artist {
+            self.coordinator.navigateToDetails(mediaType: mediaType, content: data)
+            } else {
+                showAlert(message: "No additional details to be displayed")
+            }
+        }
+    }
 }

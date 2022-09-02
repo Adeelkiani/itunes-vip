@@ -10,8 +10,8 @@ import UIKit
 
 extension UIImageView {
     
-    func load(url: URL,onResult:@escaping (_ isLoaded:Bool)->()) {
-        DispatchQueue.global(qos: .background).async{ [weak self] in
+    func load(url: URL, onResult: @escaping (_ isLoaded: Bool) -> Void) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
                     

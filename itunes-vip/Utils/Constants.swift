@@ -21,12 +21,6 @@ let API_SEARCH = "\(BASE_URL)/search"
 
 let MEDIA_FILE = "mediaTypes"
 
-enum Colors: String {
-    case EmptyCollectionView = "EmptyCollectionView"
-    case SectionHeader = "SectionHeader"
-    
-}
-
 enum HTTP_CODE: Int {
     case HTTP_200 = 200
     case HTTP_400 = 400

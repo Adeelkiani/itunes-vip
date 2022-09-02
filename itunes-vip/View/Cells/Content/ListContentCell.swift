@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListContentCell: UITableViewCell {
+class ListContentCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -16,8 +16,13 @@ class ListContentCell: UITableViewCell {
     var data: (mediaType: String, content: ContentPayload)! {
         didSet {
             if let imgUrl = URL(string: data.content.artworkUrl100 ?? "") {
+                contentImage.contentMode = .scaleAspectFill
                 contentImage.load(url: imgUrl) { [weak self] _ in}
+            } else {
+                contentImage.contentMode = .scaleAspectFit
+                contentImage.image = #imageLiteral(resourceName: "no-picture")
             }
+            
             if let type = MediaTypes(rawValue: data.mediaType) {
                 setTitle(type: type, content: data.content)
             }
@@ -32,7 +37,11 @@ class ListContentCell: UITableViewCell {
             titleLabel.text = content.collectionName ?? ""
             descriptionLabel.text = content.artistName ?? ""
         
-        case .Artist, .Book, .Movie, .MusicVideo, .Podcast, .Song:
+        case .Artist:
+            titleLabel.text = content.artistName ?? ""
+            descriptionLabel.text = content.primaryGenreName ?? ""
+            
+        case .Book, .Movie, .MusicVideo, .Podcast, .Song:
             titleLabel.text = content.trackName ?? ""
             descriptionLabel.text = content.artistName ?? ""
        
@@ -42,12 +51,6 @@ class ListContentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
 }

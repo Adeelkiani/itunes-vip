@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GridContentCell: UITableViewCell {
+class GridContentCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentImage: UIImageView!
@@ -15,8 +15,13 @@ class GridContentCell: UITableViewCell {
     var data: (mediaType: String, content: ContentPayload)! {
         didSet {
             if let imgUrl = URL(string: data.content.artworkUrl100 ?? "") {
+                contentImage.contentMode = .scaleAspectFill
                 contentImage.load(url: imgUrl) { [weak self] _ in}
+            } else {
+                contentImage.contentMode = .scaleAspectFit
+                contentImage.image = #imageLiteral(resourceName: "no-picture")
             }
+            
             if let type = MediaTypes(rawValue: data.mediaType) {
                 setTitle(type: type, content: data.content)
             }
@@ -29,20 +34,16 @@ class GridContentCell: UITableViewCell {
         
         case .Album:
             titleLabel.text = content.collectionName ?? ""
-        case .Artist, .Book, .Movie, .MusicVideo, .Podcast, .Song:
-            titleLabel.text = content.trackName ?? ""       
+        case .Artist:
+            titleLabel.text = content.artistName ?? ""
+        case .Book, .Movie, .MusicVideo, .Podcast, .Song:
+            titleLabel.text = content.trackName ?? ""
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
