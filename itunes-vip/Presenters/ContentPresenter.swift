@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ContentPresenterDelegate {
+protocol ContentPresenterDelegate: AnyObject {
     func presentContent(content: [String: [ContentPayload]])
 }
 
@@ -18,7 +18,6 @@ class ContentPresenter: ContentPresenterDelegate {
     func presentContent(content: [String: [ContentPayload]]) {
         
         let sectionHeaders = Array(content.keys.map { $0 }).sorted(by: {$0 < $1})
-        print(sectionHeaders)
         self.view?.contentLoaded(sectionHeaders: sectionHeaders, content: content)
     }
     

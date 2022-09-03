@@ -12,7 +12,7 @@ enum ViewType {
     case LIST
 }
 
-protocol ContentViewDelegate {
+protocol ContentViewDelegate: AnyObject {
     func contentLoaded(sectionHeaders: [String], content: [String: [ContentPayload]])
 }
 
@@ -35,8 +35,7 @@ class ContentViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        self.interactor?.loadContent()
-        
+        loadContent()
     }
     
     private func setupView() {
@@ -73,6 +72,10 @@ class ContentViewController: UIViewController {
         imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         
+    }
+    
+    func loadContent() {
+        self.interactor?.loadContent()
     }
     
     @IBAction func onLayoutChange(_ sender: UISegmentedControl) {
@@ -181,7 +184,7 @@ extension ContentViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let sectionKey = sectionHeaders[indexPath.section]
-        if let data = contentList[sectionKey]?[indexPath.row], let mediaType = MediaTypes(rawValue: sectionKey) {
+        if let data = contentList[sectionKey]?[indexPath.row], let mediaType = MEDIA_TYPE(rawValue: sectionKey) {
             
             if mediaType != .Artist {
             self.coordinator.navigateToDetails(mediaType: mediaType, content: data)

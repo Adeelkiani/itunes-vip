@@ -42,7 +42,7 @@ class HomeCoordinator: HomeCoordinatorDelegate {
     
     func navigateToSelectMediaTypes(mediaTypes: [MediaTypePayload], selectedMediaTypes: [MediaTypePayload], selectedTypes: @escaping MediaTypesSelectionHandler) {
         
-        let viewController = SelectMediaTypeViewController(mediaTypes: mediaTypes, selectedMediaTypes: selectedMediaTypes) { [weak self] mediaTypes in
+        let viewController = SelectMediaTypeViewController(mediaTypes: mediaTypes, selectedMediaTypes: selectedMediaTypes) { mediaTypes in
             selectedTypes(mediaTypes)
         }
         viewController.coordinator = self

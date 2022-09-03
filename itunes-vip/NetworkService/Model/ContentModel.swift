@@ -36,5 +36,5 @@ struct ContentPayload: Codable {
     let collectionArtistId: Int?
     let collectionArtistViewUrl: String?
     let trackHDPrice, trackHDRentalPrice: Double?
-    let shortDescription, longDescription,description: String?
+    let shortDescription, longDescription, description: String?
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol HomePresenterDelegate {
+protocol HomePresenterDelegate: AnyObject {
     func presentMediaTypes(mediaTypes: [MediaTypePayload])
     func presentSelectedMediaTypes(mediaTypes: [MediaTypePayload])
     func formatContent(mediaType: String, content: [ContentPayload])
@@ -38,7 +38,6 @@ class HomePresenter: HomePresenterDelegate {
     
     func formatContent(mediaType: String, content: [ContentPayload]) {
         formatContentList[mediaType] = content
-        print("Presenting  mediaType: \(mediaType) and content: \(content.count)")
     }
     
     func presentError(error: String) {

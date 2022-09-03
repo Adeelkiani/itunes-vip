@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol HomeViewDelegate {
+protocol HomeViewDelegate: AnyObject {
     func setMediaTypes(mediaTypes: [MediaTypePayload])
     func setSelectedMediaTypes(mediaTypes: [MediaTypePayload])
     func setEmptyMediaView()
     func contentDidLoaded(content: [String: [ContentPayload]])
     func contentDidFailed(error: String)
-
+    
 }
 
 class HomeViewController: UIViewController {
@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
     private func validate() -> Bool {
         if !searchField.hasText {
             self.showAlert(message: "Search field cannot be empty")
-           return false
+            return false
         }
         
         if selectedMediaTypes.isEmpty {
@@ -60,25 +60,44 @@ class HomeViewController: UIViewController {
         }
         return true
     }
-
+    
+    private func validateEmptyContent(content: [String: [ContentPayload]]) -> Bool {
+        for _content in content where !_content.value.isEmpty {
+           return true
+        }
+        showAlert(message: "No content found")
+        return false
+    }
+    
+    func fetchContent(searchQuery: String) {
+        self.interactor?.fetchContent(searchQuery: searchQuery)
+    }
+    
+    func selectMediaTypes(mediaTypes: [MediaTypePayload]) {
+        self.interactor?.setSelectedMediaTypes(mediaTypes: mediaTypes)
+    }
+    
+    func removeSelectMediaType(mediaType: MediaTypePayload) {
+        self.interactor?.removeSelectedMedia(type: mediaType)
+    }
+    
     @IBAction func onAddMediaTypeTapped(_ sender: UITapGestureRecognizer) {
         
         self.coordinator.navigateToSelectMediaTypes(mediaTypes: mediaTypes, selectedMediaTypes: selectedMediaTypes) { [weak self] mediaTypes in
-            
-            self?.interactor?.setSelectedMediaTypes(mediaTypes: mediaTypes)
+            self?.selectMediaTypes(mediaTypes: mediaTypes)
         }
     }
     
     @IBAction func onSubmitTapped(_ sender: Any) {
         if validate() {
             self.showLoader(text: "Loading content...")
-            self.interactor?.fetchContent(searchQuery: searchField.text ?? "")
+            self.fetchContent(searchQuery: searchField.text ?? "" )
         }
     }
 }
 
 extension HomeViewController: HomeViewDelegate {
-   
+    
     func setMediaTypes(mediaTypes: [MediaTypePayload]) {
         self.mediaTypes = mediaTypes
     }
@@ -101,7 +120,9 @@ extension HomeViewController: HomeViewDelegate {
     
     func contentDidLoaded(content: [String: [ContentPayload]]) {
         self.hideLoader { [weak self] in
-            self?.coordinator.navigateToContent(content: content)
+            if self?.validateEmptyContent(content: content) ?? false {
+                self?.coordinator.navigateToContent(content: content)
+            }
         }
     }
     
@@ -133,7 +154,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.data = selectedMediaTypes[indexPath.row]
             cell.removeTapped = { [weak self] in
                 if let type = self?.selectedMediaTypes[indexPath.row] {
-                    self?.interactor?.removeSelectedMedia(type: type)
+                    self?.removeSelectMediaType(mediaType: type)
                 }
             }
             return cell

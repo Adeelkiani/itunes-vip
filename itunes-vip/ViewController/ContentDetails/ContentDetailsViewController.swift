@@ -21,10 +21,10 @@ class ContentDetailsViewController: UIViewController {
     
     var coordinator: ContentCoordinatorDelegate!
     var content: ContentPayload!
-    var mediaType: MediaTypes!
+    var mediaType: MEDIA_TYPE!
     var playerAV: AVPlayer!
     
-    init(mediaType: MediaTypes, content: ContentPayload) {
+    init(mediaType: MEDIA_TYPE, content: ContentPayload) {
         self.mediaType = mediaType
         self.content = content
         super.init(nibName: "ContentDetailsViewController", bundle: nil)
@@ -88,7 +88,7 @@ class ContentDetailsViewController: UIViewController {
     private func setImage(imgUrl: String) {
         
         if let imgUrl = URL(string: imgUrl) {
-            headerImageView.load(url: imgUrl) { [weak self] _ in}
+            headerImageView.load(url: imgUrl) {_ in }
         } else {
             headerImageView.image = #imageLiteral(resourceName: "no-picture")
         }

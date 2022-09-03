@@ -24,6 +24,13 @@
 		D8174D4428BFCC5B009EF4D0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8174D4328BFCC5B009EF4D0 /* AppCoordinator.swift */; };
 		D8174D4628BFD13A009EF4D0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8174D4528BFD13A009EF4D0 /* HomeCoordinator.swift */; };
 		D8174D4A28BFDB7D009EF4D0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D8174D4828BFDB56009EF4D0 /* .swiftlint.yml */; };
+		D873572D28C319DA00915B67 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D873572C28C319DA00915B67 /* HomeInteractorTests.swift */; };
+		D873572F28C319F200915B67 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D873572E28C319F200915B67 /* HomePresenterTests.swift */; };
+		D873573128C31A0200915B67 /* HomeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D873573028C31A0200915B67 /* HomeViewTests.swift */; };
+		D873573428C35A8200915B67 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D873573328C35A8200915B67 /* NetworkTests.swift */; };
+		D873573A28C3691E00915B67 /* ContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D873573928C3691E00915B67 /* ContentViewTests.swift */; };
+		D873573C28C36E7C00915B67 /* ContentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D873573B28C36E7C00915B67 /* ContentInteractorTests.swift */; };
+		D873573E28C372D400915B67 /* ContentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D873573D28C372D300915B67 /* ContentPresenterTests.swift */; };
 		D8B9847828C087E500987E37 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9847728C087E500987E37 /* HomeInteractor.swift */; };
 		D8B9847A28C0884100987E37 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9847928C0884100987E37 /* HomePresenter.swift */; };
 		D8B9847D28C0947100987E37 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9847C28C0947100987E37 /* NetworkService.swift */; };
@@ -103,6 +110,13 @@
 		D8174D4328BFCC5B009EF4D0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D8174D4528BFD13A009EF4D0 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		D8174D4828BFDB56009EF4D0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		D873572C28C319DA00915B67 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
+		D873572E28C319F200915B67 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		D873573028C31A0200915B67 /* HomeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTests.swift; sourceTree = "<group>"; };
+		D873573328C35A8200915B67 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		D873573928C3691E00915B67 /* ContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTests.swift; sourceTree = "<group>"; };
+		D873573B28C36E7C00915B67 /* ContentInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInteractorTests.swift; sourceTree = "<group>"; };
+		D873573D28C372D300915B67 /* ContentPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPresenterTests.swift; sourceTree = "<group>"; };
 		D8B9847728C087E500987E37 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		D8B9847928C0884100987E37 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		D8B9847C28C0947100987E37 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -240,6 +254,10 @@
 		D8174D1828BFC874009EF4D0 /* itunes-vipTests */ = {
 			isa = PBXGroup;
 			children = (
+				D873573228C3490C00915B67 /* Network */,
+				D873572928C3197B00915B67 /* View */,
+				D873572828C3197100915B67 /* Presenter */,
+				D873572728C3195000915B67 /* Interactor */,
 				D8174D1928BFC874009EF4D0 /* itunes_vipTests.swift */,
 			);
 			path = "itunes-vipTests";
@@ -319,6 +337,41 @@
 				D8FBD4D428C216430064950C /* ContentCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		D873572728C3195000915B67 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D873572C28C319DA00915B67 /* HomeInteractorTests.swift */,
+				D873573B28C36E7C00915B67 /* ContentInteractorTests.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D873572828C3197100915B67 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D873572E28C319F200915B67 /* HomePresenterTests.swift */,
+				D873573D28C372D300915B67 /* ContentPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D873572928C3197B00915B67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D873573028C31A0200915B67 /* HomeViewTests.swift */,
+				D873573928C3691E00915B67 /* ContentViewTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D873573228C3490C00915B67 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D873573328C35A8200915B67 /* NetworkTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		D8B9847528C0875A00987E37 /* Interactors */ = {
@@ -754,7 +807,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D873573A28C3691E00915B67 /* ContentViewTests.swift in Sources */,
 				D8174D1A28BFC874009EF4D0 /* itunes_vipTests.swift in Sources */,
+				D873573128C31A0200915B67 /* HomeViewTests.swift in Sources */,
+				D873573428C35A8200915B67 /* NetworkTests.swift in Sources */,
+				D873573E28C372D400915B67 /* ContentPresenterTests.swift in Sources */,
+				D873572D28C319DA00915B67 /* HomeInteractorTests.swift in Sources */,
+				D873573C28C36E7C00915B67 /* ContentInteractorTests.swift in Sources */,
+				D873572F28C319F200915B67 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

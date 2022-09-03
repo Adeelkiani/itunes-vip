@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol HomeInteractorDelegate {
+protocol HomeInteractorDelegate: AnyObject {
     func loadMediaTypes()
     func setSelectedMediaTypes(mediaTypes: [MediaTypePayload])
     func removeSelectedMedia(type: MediaTypePayload)
-    func fetchContent(searchQuery: String)
+    func fetchContent(searchQuery: String)    
 }
 
 class HomeInteractor: HomeInteractorDelegate {

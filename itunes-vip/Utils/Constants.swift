@@ -28,7 +28,7 @@ enum HTTP_CODE: Int {
     
 }
 
-enum MediaTypes: String {
+enum MEDIA_TYPE: String {
 case Album = "Album"
 case Artist = "Artist"
 case Book = "Book"

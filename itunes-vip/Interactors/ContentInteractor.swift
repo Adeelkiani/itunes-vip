@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ContentInteractorDelegate {
+protocol ContentInteractorDelegate: AnyObject {
     func loadContent()
 }
 

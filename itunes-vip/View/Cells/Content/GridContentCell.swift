@@ -16,19 +16,19 @@ class GridContentCell: UICollectionViewCell {
         didSet {
             if let imgUrl = URL(string: data.content.artworkUrl100 ?? "") {
                 contentImage.contentMode = .scaleAspectFill
-                contentImage.load(url: imgUrl) { [weak self] _ in}
+                contentImage.load(url: imgUrl) {_ in }
             } else {
                 contentImage.contentMode = .scaleAspectFit
                 contentImage.image = #imageLiteral(resourceName: "no-picture")
             }
             
-            if let type = MediaTypes(rawValue: data.mediaType) {
+            if let type = MEDIA_TYPE(rawValue: data.mediaType) {
                 setTitle(type: type, content: data.content)
             }
         }
     }
     
-    private func setTitle(type: MediaTypes, content: ContentPayload) {
+    private func setTitle(type: MEDIA_TYPE, content: ContentPayload) {
         
         switch type {
         
