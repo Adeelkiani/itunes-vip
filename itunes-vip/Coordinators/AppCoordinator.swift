@@ -21,7 +21,7 @@ extension Coordinator {
 }
 
 final class AppCoordinator: Coordinator {
-  
+
   var navigationController: UINavigationController
   
     // MARK: - Properties

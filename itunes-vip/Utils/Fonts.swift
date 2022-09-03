@@ -20,13 +20,13 @@ class Fonts {
         "Light": FontFamily.light.rawValue,
         "Book": FontFamily.book.rawValue
     ]
-    
+
     static func font(fontWeight: FontFamily = .book, fontSize: CGFloat) -> UIFont {
         return UIFont(name: fontWeight.rawValue, size: fontSize) ?? defaultFont(fontSize: fontSize)
     }
     
     static func font(type: String = "Book", fontSize: CGFloat) -> UIFont {
-        
+
         let fontFamily = fontFamily[type] ?? type
         return UIFont(name: fontFamily, size: fontSize) ?? defaultFont(fontSize: fontSize)
     }

@@ -17,6 +17,11 @@ opt_in_rules: # some rules are only opt-in
     - operator_usage_whitespace
     - redundant_nil_coalescing
     - unneeded_parentheses_in_closure_argument
+    - control_statement
+    - empty_count
+    - trailing_newline
+    - colon
+    - comma
     
 type_name:
     allowed_symbols: "_"
@@ -27,25 +32,18 @@ excluded:
     - ItunesvipUITests
 
 # configurable rules can be customized from this configuration file
-# binary rules can set their severity level
 cyclomatic_complexity: 25
 force_cast:
     severity: warning # explicitly
 force_try:
     severity: warning # explicitly
-# rules that have both warning and error levels, can set just the warning level
 large_tuple: 3
 function_parameter_count: 5
-# they can set both implicitly with an array
 type_body_length:
     - 200 # warning
     - 300 # error
-# or they can set both explicitly
 file_length:
     warning: 700
     error: 900
-# function body length set to 50
 function_body_length: 80
-# naming rules can set warnings/errors for min_length and max_length
-# additionally they can set excluded names
-reporter: 'xcode' # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
+reporter: 'xcode'

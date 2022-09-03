@@ -25,7 +25,6 @@ enum HTTP_CODE: Int {
     case HTTP_200 = 200
     case HTTP_400 = 400
     case HTTP_500 = 500
-    
 }
 
 enum MEDIA_TYPE: String {
