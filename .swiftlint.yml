@@ -31,6 +31,7 @@ excluded:
     - ItunesvipUITests
 
 # configurable rules can be customized from this configuration file
+# Complexity of function bodies should be limited.
 cyclomatic_complexity: 25
 force_cast:
     severity: warning # explicitly

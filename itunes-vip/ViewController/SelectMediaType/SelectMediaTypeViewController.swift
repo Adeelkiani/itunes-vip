@@ -17,6 +17,8 @@ class SelectMediaTypeViewController: UIViewController {
 
     var mediaTypes: [MediaTypePayload] = []
     var selectedMediaTypes: [MediaTypePayload] = []
+    
+    // for live callbacks we can use interactor as another option instead of closure
     var interactor: HomeInteractorDelegate?
     var handler: MediaTypesSelectionHandler?
     
@@ -90,11 +92,14 @@ extension SelectMediaTypeViewController: UITableViewDataSource, UITableViewDeleg
             self.selectedMediaTypes.append(item)
         }
         
+        // for live callbacks we can use interactor as another option instead of closure
         self.interactor?.setSelectedMediaTypes(mediaTypes: self.selectedMediaTypes)
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let item = mediaTypes[indexPath.row]
         self.selectedMediaTypes.removeAll(where: {$0 == item})
+        
+        // for live callbacks we can use interactor as another option instead of closure
         self.interactor?.setSelectedMediaTypes(mediaTypes: self.selectedMediaTypes)
     }
 }

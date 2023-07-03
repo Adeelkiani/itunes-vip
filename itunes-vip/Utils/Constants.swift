@@ -27,6 +27,7 @@ enum HTTP_CODE: Int {
     case HTTP_500 = 500
 }
 
+/// Using this to add conditions on details view controller
 enum MEDIA_TYPE: String {
 case Album = "Album"
 case Artist = "Artist"

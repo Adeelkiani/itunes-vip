@@ -39,7 +39,7 @@ final class AppCoordinator: Coordinator {
       window.makeKeyAndVisible()
       navigateToHome()
   }
-
+    
   // MARK: - Navigation
   private func navigateToHome() {
 
